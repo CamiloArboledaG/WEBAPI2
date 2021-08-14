@@ -1,10 +1,13 @@
 import './App.css';
-import Busqueda from './components/Busqueda';
+import Weather from './components/Weather';
+import News from './components/News';
 
 function App() {
   return (
     <div className="App">
-        <Busqueda/>
+        
+        <News/>
+        <Weather/>
     </div>
   );
 }

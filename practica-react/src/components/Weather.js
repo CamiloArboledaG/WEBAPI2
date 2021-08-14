@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Busqueda extends Component {
+class Weather extends Component {
 
     constructor(props) {
         super(props);
@@ -36,10 +36,6 @@ class Busqueda extends Component {
             humidity,
             feels,
             name,
-
-            
-            
-
             weatherState: weatherStateTemp,
             
         }
@@ -76,4 +72,4 @@ class Busqueda extends Component {
     }
 }
 
-export default Busqueda;
+export default Weather;
