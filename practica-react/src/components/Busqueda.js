@@ -49,7 +49,7 @@ class Busqueda extends Component{
         
         return(
             <div>
-                {Weather.humidity}
+                {Weather.wind}
             </div>
         )
     }
