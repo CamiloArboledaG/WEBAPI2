@@ -102,10 +102,6 @@ class News extends Component {
                                     {
                                         
                                         News.map((noti) =>
-                                        {
-                                            if(noti.author== "cali"){
-                                                <div>Not found</div>
-                                            }else{
                                                 <Grid item xs={12} sm={12} md={6} lg={4} spacing={2}>
                                                 <NewsCard
                                                     author={noti.author}
@@ -117,9 +113,6 @@ class News extends Component {
                                                     content={noti.content}
                                                 />
                                             </Grid>
-                                            }
-                                            
-                                        }
                                         
                                             
 
