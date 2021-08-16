@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import Logo from '../assets/images/logo.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -41,10 +40,6 @@ export default function Header() {
           <Typography variant="h6" className={classes.menuButton}>
             Weather and News
           </Typography>
-            </div>
-            <div>
-          <Button color="inherit" className={classes.boton}>Login</Button>
-          <Button color="inherit" className={classes.boton}>Sign up</Button>
             </div>
         </Toolbar>
       </AppBar>

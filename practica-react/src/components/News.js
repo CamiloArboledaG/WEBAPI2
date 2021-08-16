@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Typography, TextField,  Grid } from "@material-ui/core";
 import NewsCard from "./NewsCard";
-import { Message } from "@material-ui/icons";
 
 class News extends Component {
 
