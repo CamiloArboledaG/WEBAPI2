@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import { Button, TextField, Typography } from "@material-ui/core";
 
 class Weather extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { Weather: [] }
+        this.state = { Weather: [], value: '' };
+        this.handleChange = this.handleChange.bind(this);
+
     }
 
     getWeatherState = response_data => {
@@ -37,7 +40,7 @@ class Weather extends Component {
             feels,
             name,
             weatherState: weatherStateTemp,
-            
+
         }
         return data;
     }
@@ -56,7 +59,28 @@ class Weather extends Component {
     }
 
     componentDidUpdate() {
-        this.refreshList();
+        this.handleSubmit();
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+      }
+    
+
+    handleSubmit() {
+        
+        fetch(process.env.REACT_APP_API + 'Weather/' + this.state.value, {
+            method: 'Get',
+            header: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+            .then(data => {
+                const newData = this.getData(data);
+                this.setState({ Weather: newData })
+            })
     }
 
 
@@ -66,8 +90,14 @@ class Weather extends Component {
 
         return (
             <div>
-                {Weather.hour}
-            </div>
+                <form >
+                <TextField type="text" value={this.state.value} onChange={this.handleChange} />
+                <Button variant="contained" color="primary" type="submit" onClick={this.componentDidUpdate}>Buscar</Button>
+                <Typography>Es: {Weather.wind}</Typography>
+                </form>
+
+
+            </div >
         )
     }
 }

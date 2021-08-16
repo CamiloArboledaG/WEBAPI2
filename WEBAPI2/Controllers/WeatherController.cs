@@ -15,9 +15,26 @@ namespace WEBAPI2.Controllers
 
         [HttpGet]
         
-        public string Get(string ciudad)
+        public string Get()
         {
             using(WebClient web=new WebClient())
+            {
+                string url = string.Format("");
+                    url = string.Format("http://api.openweathermap.org/data/2.5/weather?q=" + "cali" + "&appid=d2e612eb36729d83d1dd24b0a4be17d2");
+
+                var json = web.DownloadString(url);
+                return json;
+
+            }
+        }
+
+
+
+        [HttpGet("{ciudad}")]
+
+        public string Get(string ciudad)
+        {
+            using (WebClient web = new WebClient())
             {
                 string url = string.Format("");
                 if (ciudad == null || ciudad.Equals(String.Empty))
@@ -36,14 +53,6 @@ namespace WEBAPI2.Controllers
                 return json;
 
             }
-            
-
-
-
-            //string url = @"api.openweathermap.org/data/2.5/weather?q=california&appid=d2e612eb36729d83d1dd24b0a4be17d2";
-            //WebRequest webRequest = WebRequest.Create(url);
-            //HttpWebRequest httpwebRequest = null;
-            //httpwebRequest = (HttpWebRequest)webRequest.GetResponse();
         }
     }
 }

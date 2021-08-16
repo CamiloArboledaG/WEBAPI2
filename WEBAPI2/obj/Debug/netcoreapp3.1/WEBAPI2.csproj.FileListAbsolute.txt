@@ -21,6 +21,3 @@ C:\Users\Usuario\Documents\Personal\Proyectos\Practica\WEBAPI2\WEBAPI2\obj\Debug
 C:\Users\Usuario\Documents\Personal\Proyectos\Practica\WEBAPI2\WEBAPI2\obj\Debug\netcoreapp3.1\WEBAPI2.dll
 C:\Users\Usuario\Documents\Personal\Proyectos\Practica\WEBAPI2\WEBAPI2\obj\Debug\netcoreapp3.1\WEBAPI2.pdb
 C:\Users\Usuario\Documents\Personal\Proyectos\Practica\WEBAPI2\WEBAPI2\obj\Debug\netcoreapp3.1\WEBAPI2.genruntimeconfig.cache
-C:\Users\Usuario\Documents\Personal\Proyectos\Practica\WEBAPI2\WEBAPI2\bin\Debug\netcoreapp3.1\practica\package-lock.json
-C:\Users\Usuario\Documents\Personal\Proyectos\Practica\WEBAPI2\WEBAPI2\bin\Debug\netcoreapp3.1\practica\package.json
-C:\Users\Usuario\Documents\Personal\Proyectos\Practica\WEBAPI2\WEBAPI2\bin\Debug\netcoreapp3.1\practica\public\manifest.json

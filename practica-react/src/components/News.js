@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { Typography, TextField, Button } from "@material-ui/core";
 
-class Weather extends Component {
+class News extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { News: [] }
+        this.state = { News: [] };
+        this.handleChange = this.handleChange.bind(this);
     }
 
 
@@ -13,12 +15,11 @@ class Weather extends Component {
 
         
         const articles = response_data.articles;
-        const News = null;
-
-
+        const articulos= articles[0];
+        const autor = articulos.author;
 
         const data = {
-            articles,
+            autor,
         }
         return data;
     }
@@ -37,7 +38,27 @@ class Weather extends Component {
     }
 
     componentDidUpdate() {
-        this.refreshList();
+        this.handleSubmit();
+    }
+
+    handleChange(event) {
+        this.setState({value: event.target.value});
+      }
+
+    handleSubmit() {
+        
+        fetch(process.env.REACT_APP_API + 'News/' + this.state.value, {
+            method: 'Get',
+            header: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+            .then(data => {
+                const newData = this.getData(data);
+                this.setState({ News: newData })
+            })
     }
 
 
@@ -47,10 +68,13 @@ class Weather extends Component {
 
         return (
             <div>
-                {News.author}
+                <TextField type="text" value={this.state.value} onChange={this.handleChange} />
+                <Button variant="contained" color="primary" type="submit" onClick={this.componentDidUpdate}>Buscar</Button>
+                <Typography>Es: {News.autor}</Typography>
+                
             </div>
         )
     }
 }
 
-export default Weather;
+export default News;

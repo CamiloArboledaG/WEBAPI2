@@ -1,13 +1,15 @@
 import './App.css';
 import Weather from './components/Weather';
 import News from './components/News';
+import Header from './components/Header'
 
 function App() {
   return (
     <div className="App">
         
-        <News/>
+        <Header/>
         <Weather/>
+        {/* <News/> */}
     </div>
   );
 }
