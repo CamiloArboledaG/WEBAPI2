@@ -91,9 +91,12 @@ class Weather extends Component {
         const { Weather } = this.state;
         const { data } = this.state;
         return (
-            <div>
+            <div style={{ margin: "2rem",padding:"1rem", backgroundColor: "#a19185", borderRadius: "1rem", boxShadow: "1px 1px 2px gray" }}>
+                <Typography variant="h4" style={{ color: 'white', display: "flex", margin: "1rem" }}>Weather</Typography>
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "space-around" }}>
+                
                     <Grid container style={{ display: "flex", alignItems: "center", justifyContent: "space-around" }}>
+                        
                     <Grid item xs={12} sm={12} md={6}>
                     <form style={{ display: "flex", margin: "3rem" }}>
                         <TextField type="text" value={this.state.value} onChange={this.handleChange} style={{ marginRight: "3rem" }} />
@@ -118,30 +121,42 @@ class Weather extends Component {
                     
                 </div>
 
-                <div style={{ display: "flex", margin: "2rem", backgroundColor: "#76323F", maxWidth: "18rem", borderRadius: "1rem", boxShadow: "1px 1px 2px gray" }}>
-                    <Typography variant="h5" style={{ color: 'white', display: "flex", margin: "1rem" }}>weather cards added</Typography>
-                </div>
-                <div>
-                    <Grid container>
-                        {
-                            data.map((weat) =>
-                                <Grid item xs={12} sm={12} md={6} lg={4}>
-                                    <WeatherCard
-                                        name={weat.name}
-                                        temperatura={weat.temperatura}
-                                        description={weat.description}
-                                        wind={weat.wind}
-                                        pressure={weat.pressure}
-                                        humidity={weat.humidity}
-                                        feels={weat.feels}
-                                    />
-                                </Grid>
+                <div style={{ display: "flex", margin: "2rem", backgroundColor: "#76323F", borderRadius: "1rem", boxShadow: "1px 1px 2px gray" }}>
+                <Grid container>
+                <Grid item xs={12}>
+                <Typography variant="h5" style={{ color: 'white', display: "flex", margin: "1rem" }}>weather cards added</Typography>
+                
+                </Grid>
+                    
+                <Grid item xs={12}>
+                <div style={{ margin:"3rem"}}>
+                <Grid container >
+                {
+                        data.map((weat) =>
+                            <Grid item xs={12} sm={12} md={6} lg={6}>
+                                <WeatherCard
+                                    name={weat.name}
+                                    temperatura={weat.temperatura}
+                                    description={weat.description}
+                                    wind={weat.wind}
+                                    pressure={weat.pressure}
+                                    humidity={weat.humidity}
+                                    feels={weat.feels}
+                                />
+                            </Grid>
 
-                            )
-                        }
-                    </Grid>
-                </div>
+                        )
+                    }
 
+                </Grid>
+                
+            </div>
+
+                </Grid>
+                   
+                </Grid>
+                </div>
+                
 
             </div >
         )

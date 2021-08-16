@@ -19,8 +19,23 @@ namespace WEBAPI2.Controllers
         {
             using (WebClient web = new WebClient())
             {
+                string keyword = "";
+                string Date = DateTime.Now.ToString("dd-MM-yyyy");
                 string url = string.Format("");
-                url = string.Format("https://newsapi.org/v2/everything?" + "q=" + "bitcoin" + "&" + "from=2021-08-12&" + "sortBy=popularity&" + "apiKey=e5c6659b74ea4373906d45e7869424e8");
+                if (keyword == null || keyword.Equals(String.Empty))
+                {
+                    keyword = "bitcoin";
+                    url = string.Format("https://newsapi.org/v2/everything?q=" + keyword + "&" + "from="+Date + "sortBy=popularity&apiKey=e963222d922546a0ae58cc7b81cb720d");
+
+                }
+
+                else
+                {
+
+                    url = string.Format("https://newsapi.org/v2/everything?" + "q=" + "bitcoin" + "&" + "from=" + Date + "sortBy=popularity&" + "apiKey=e963222d922546a0ae58cc7b81cb720d");
+                    
+
+                }
                 var json = web.DownloadString(url);
                 return json;
 
@@ -35,20 +50,25 @@ namespace WEBAPI2.Controllers
             using (WebClient web = new WebClient())
             {
                 string url = string.Format("");
-                if (keyword == null || keyword.Equals(String.Empty))
+                string Date = DateTime.Now.ToString("dd-MM-yyyy");
+                url = string.Format("https://newsapi.org/v2/everything?q=" + keyword + "&" + "from=" + Date + "sortBy=popularity&apiKey=e963222d922546a0ae58cc7b81cb720d");
+                var json = web.DownloadString(url);
+                if (json.Length > 200)
                 {
-                    keyword = "bitcoin";
-                    url = string.Format("https://newsapi.org/v2/everything?" + "q=" + keyword + "&" + "from=2021-08-12&" + "sortBy=popularity&" + "apiKey=e5c6659b74ea4373906d45e7869424e8");
+
+                    return json;
 
                 }
-
                 else
                 {
-                    url = string.Format("https://newsapi.org/v2/everything?" + "q=" + keyword + "&" + "from=2021-08-12&" + "sortBy=popularity&" + "apiKey=e5c6659b74ea4373906d45e7869424e8");
-
+                    keyword = "bitcoin";
+                    url = string.Format("https://newsapi.org/v2/everything?" + "q=" + keyword + "&" + "from=" + Date + "sortBy=popularity&" + "apiKey=e963222d922546a0ae58cc7b81cb720d");
+                    var json1 = web.DownloadString(url);
+                    return json1;
                 }
-                var json = web.DownloadString(url);
-                return json;
+                
+
+                ;
 
             }
         }

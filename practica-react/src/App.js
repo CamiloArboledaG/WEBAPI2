@@ -9,7 +9,7 @@ function App() {
         
         <Header/>
         <Weather/>
-        {/* <News/> */}
+        <News/>
     </div>
   );
 }

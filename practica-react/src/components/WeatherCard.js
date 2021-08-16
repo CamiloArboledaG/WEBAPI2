@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import CloudIcon from '@material-ui/icons/Cloud';
 import WindImg from '../assets/images/wind.png';
 import PressureImg from '../assets/images/pressure.png';
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     margin:"1rem",
     borderRadius:"1rem",
     padding:"1rem",
-    boxShadow:"7px 5px 25px gray"
+    boxShadow:"2px 2px 5px black",
   },
   divdisplay:{
     display: "flex",
@@ -51,8 +51,8 @@ export default function WeatherCard(props) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <div>
+    <Grid container className={classes.root}>
+      <Grid item xs={12} sm={12} md={6}>
         <Typography style={{ color: 'white'}} variant="h5" className={classes.shadowtext}>{props.name}</Typography>
         <div className={classes.divdisplay3}>
           <CloudIcon style={{ color: 'white'}} className={classes.Icono}></CloudIcon>
@@ -63,8 +63,8 @@ export default function WeatherCard(props) {
 
         </div>
 
-      </div>
-      <div>
+      </Grid>
+      <Grid>
         <div className={classes.divdisplay2}>
           <div className={classes.divdisplay}>
             <img className={classes.img} src={WindImg}></img>
@@ -94,7 +94,7 @@ export default function WeatherCard(props) {
           <Typography style={{ color: 'white'}}>{props.feels}°</Typography>
         </div>
 
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   );
 }
